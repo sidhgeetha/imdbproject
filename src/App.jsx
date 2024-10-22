@@ -78,6 +78,7 @@ const App = () => {
               <Nowplaying path="/now_playing" />
               <Upcoming path="/upcoming" />
               {/* </EnvironmentProvider> */}
+              <Pagination />
             </>
           }
         />
