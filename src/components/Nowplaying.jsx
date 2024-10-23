@@ -1,10 +1,8 @@
 
-
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { PlayIcon } from "@heroicons/react/24/solid";
 import axios from "axios";
-
 import Config from "../config";
 
 const Nowplaying = ({ path }) => {
@@ -12,7 +10,6 @@ const Nowplaying = ({ path }) => {
   const location = useLocation();
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 4;
-    var totalPagesToShow = 5;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,8 +26,6 @@ const Nowplaying = ({ path }) => {
 
     fetchData();
   }, [path, location.pathname]);
-
-  
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -84,7 +79,7 @@ const Nowplaying = ({ path }) => {
                     </button>
                     <button className="flex flex-row font-semibold text-1xl px-4 py-4 text-white rounded-full my-4 hover:bg-gray-600 hover:text-gray-300">
                       <PlayIcon className="h-6 w-6 text-white-400 mr-2" />
-                      trailer
+                      Trailer
                     </button>
                   </div>
                 </div>
@@ -98,15 +93,15 @@ const Nowplaying = ({ path }) => {
         <button
           onClick={handlePrevPage}
           className="bg-blue-500 text-white px-4 py-2 mr-2 rounded disabled:bg-gray-400"
-        //   disabled={currentPage === 1}
+          disabled={currentPage === 1}
         >
           Previous
         </button>
-        <span className="px-4 py-2">  {currentPage}</span>
+        <span className="px-4 py-2">{currentPage}</span>
         <button
           onClick={handleNextPage}
           className="bg-blue-500 text-white px-4 py-2 ml-2 rounded disabled:bg-gray-400"
-        //   disabled={currentPage === Math.ceil(movies.length / itemsPerPage)}
+          disabled={currentPage === Math.ceil(movies.length / itemsPerPage)}
         >
           Next
         </button>
