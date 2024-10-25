@@ -11,7 +11,7 @@ import Pagination from "./components/Pagination";
 import Upcoming from "./components/Upcoming";
 import Popular from "./components/Popular";
 
-// import { EnvironmentProvider } from "./components/EnvironmentContext";
+
 
 import "./style/Carousel.css";
 import Nowplaying from "./components/Nowplaying";
@@ -73,11 +73,11 @@ const App = () => {
                   </h2>
                 </div>
               </div>
-              {/* <EnvironmentProvider> */}
+         
               <Popular path="/popular" />
               <Nowplaying path="/now_playing" />
               <Upcoming path="/upcoming" />
-              {/* </EnvironmentProvider> */}
+           
               <Pagination />
             </>
           }

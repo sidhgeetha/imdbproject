@@ -23,7 +23,7 @@ const Upcoming = ({ path }) => {
     };
 
     fetchData();
-  }, []);
+  }, [path, location.pathname]);
 
   return (
     <div className="-mt-14">
