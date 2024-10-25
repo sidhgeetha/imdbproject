@@ -2,14 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { PlayIcon } from "@heroicons/react/24/solid";
 import axios from "axios";
-// import EnvironmentContext from "./EnvironmentContext";
 import Config from "../config";
-import { TheatersRounded } from "@material-ui/icons";
+
 
 const Popular = ({ path }) => {
   const [movies, setMovies] = useState([]);
   const location = useLocation();
-  // const envKey = useContext(EnvironmentContext);
   useEffect(() => {
     const fetchData = async () => {
       const urlPath = path || location.pathname;
@@ -24,7 +22,7 @@ const Popular = ({ path }) => {
     };
 
     fetchData();
-  }, []);
+  }, [path, location.pathname]);
 
   return (
     <div className="-mt-14">
@@ -48,7 +46,7 @@ const Popular = ({ path }) => {
                     <div key={index}>
                       <img
                         src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-                        // className="card-img-top"
+            
                         className="w-full sm:w-[250px] md:w-[200px] lg:w-[250px] h-auto sm:h-[300px] md:h-[250px] lg:h-[300px] m-4 rounded-xl hover:scale-110 duration-300 object-cover"
                         alt="..."
                       />
